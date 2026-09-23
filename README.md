@@ -1,6 +1,6 @@
 # bayilescondemnedforce
 
-Baileys modifikasi by jojo. Versi **2.2.0** menambah JID nomor, ID `3EB0`, anti-call lengkap, dan banner naga di atas jalur stabil 2.1.0. Tidak ada fitur lama yang dihapus.
+Baileys modifikasi by jojo. Versi **2.2.1** menambah JID nomor, ID `3EB0`, anti-call lengkap, dan banner naga di atas jalur stabil 2.1.0. Tidak ada fitur lama yang dihapus.
 
 ## Yang baru
 
@@ -20,7 +20,7 @@ Yang ditambah:
 - `code`, `table`, `latex`, `richResponse`
 - `sendStatusMention(content, jids)` — status + mention, sudah di-pace
 - `updateCallPrivacy`, `updateMessagesPrivacy`, `updateDisableLinkPreviewsPrivacy`
-- JID masuk dinormalkan ke `628xxx@s.whatsapp.net` kalau WhatsApp kirim `@lid`. LID asli tetap di `key.remoteJidLid` / `key.participantLid`. Case bot pakai `msg.sender` atau `msg.key.participant || msg.key.remoteJid`.
+- JID masuk dinormalkan ke `628xxx@s.whatsapp.net` kalau WhatsApp kirim `@lid`. LID asli tetap di `key.remoteJidLid` / `key.participantLid`. Case memakai `msg.sender` atau `msg.key.participant || msg.key.remoteJid`. Pesan ephemeral, view-once, dan caption dibuka dulu supaya teksnya kebaca. Tombol native flow ikut `buttonsResponseMessage.selectedButtonId`.
 - ID pesan baru format `3EB0...` (prefix `Z4PH-` sudah diganti).
 - Anti-call **nyala default**: tolak telepon pribadi dan grup, plus set privasi panggilan `none` saat konek. Matikan dengan `antiCall: false`.
 
