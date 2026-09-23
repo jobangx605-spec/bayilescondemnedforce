@@ -1,6 +1,6 @@
 # bayilescondemnedforce
 
-Baileys modifikasi by jojo. Versi **2.2.1** menambah JID nomor, ID `3EB0`, anti-call lengkap, dan banner naga di atas jalur stabil 2.1.0. Tidak ada fitur lama yang dihapus.
+Baileys modifikasi by jojo. Versi **2.3.0** menambah fitur Cpxbail di atas jalur 2.2.x. JID nomor, ID `3EB0`, anti-call, anti-overhit, dan banner naga tetap ada. Tidak ada fitur lama yang dihapus.
 
 ## Yang baru
 
@@ -12,6 +12,19 @@ Baileys modifikasi by jojo. Versi **2.2.1** menambah JID nomor, ID `3EB0`, anti-
 - **Hint reconnect** di `connection.update`: `shouldReconnect` dan `reconnectDelayMs`. Jangan loop reconnect kalau session sudah logout.
 
 Fitur kirim yang sudah ada tetap jalan: button, list, interactive, album, payment, product, event, poll result, group story, sticker pack, newsletter, AI icon, edit/delete.
+
+## Cpxbail yang ditambah di 2.3.0
+
+- `checkBanStatus(nomor)` — cek akun aktif, banned, atau tidak terdaftar.
+- Username: `checkUsername`, `setUsername`, `deleteUsername`, `getMyUsername`, `setUsernamePin`, `findUserByUsername`, `fetchContactUsernames`, `getUsernameRecommendations`, `checkUsernameMulti`.
+- Komunitas: `communityCreate`, `communityMetadata`, `communityCreateGroup`, `communityLinkGroup`, `communityParticipantsUpdate`, dan method komunitas lain di socket.
+- GenAI: `sendTable`, `sendList`, `sendCodeBlock`, `sendLatex`, `sendLatexImage`, `sendRichMessage`. `html` / `map` / `imageUrl` ikut `richResponse`.
+- Album bersih: `sendMessage(jid, { album: [{ image }, { video }], caption })`. Metadata spam tidak dikirim.
+- `aiLabel` default nyala untuk chat pribadi, termasuk `@lid`. Matikan dengan `aiLabel: false`.
+- `noSelfSync: true` tidak menyalin pesan ke device sendiri. Kalau lawan tidak punya device, kirim gagal dengan status 421, tidak diam-diam sukses.
+- `updateMemberLabel`, `sendMessageMembers`.
+- `sock.lidMapping` menyimpan pasangan LID/nomor. `sock.rateLimiter` tersedia, tidak menahan setiap kirim.
+- `connection.update.classifyDisconnect` memberi kategori putus. `shouldReconnect` tetap yang lama: 428 tetap reconnect, 440 tidak.
 
 Yang ditambah:
 
