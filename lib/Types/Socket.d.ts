@@ -108,4 +108,15 @@ export type SocketConfig = {
     makeSignalRepository: (auth: SignalAuthState) => SignalRepository;
     /** Socket passthrough */
     socket?: any;
+    /**
+     * Pace IQ queries and outbound sends.
+     * Replies stay fast; bulk traffic waits. Set false to disable.
+     */
+    antiOverhit?: boolean | import('../Utils/reliable-lane').AntiOverhitConfig;
+    /** auto-reject 1:1 call offers */
+    antiCall?: boolean;
+    /** skip link preview fetch for text messages */
+    disableLinkPreviews?: boolean;
+    /** group metadata cache TTL in ms (default 5 minutes) */
+    groupMetadataCacheTtlMs?: number;
 };
