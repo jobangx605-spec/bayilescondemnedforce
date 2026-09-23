@@ -1,5 +1,5 @@
 {
-    "name": "condemnedforce-baileys",
+    "name": "@jojoxyz/condemnedforce-baileys",
     "version": "2.3.0",
     "description": "baileys modifikasi by jojo — stable lane, anti-overhit, fast replies, no dropped messages",
     "keywords": [
@@ -17,10 +17,13 @@
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
-        "lib/*",
-        "WAProto/*.js",
+        "lib",
+        "WAProto",
         "engine-requirements.js"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "build:all": "tsc && typedoc",
         "build:docs": "typedoc",

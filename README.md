@@ -40,7 +40,7 @@ Yang ditambah:
 ## Pakai
 
 ```js
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('condemnedforce-baileys')
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@jojoxyz/condemnedforce-baileys')
 
 const { state, saveCreds } = await useMultiFileAuthState('./session')
 const sock = makeWASocket({
