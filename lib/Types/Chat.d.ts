@@ -7,6 +7,8 @@ import type { MinimalMessage } from './Message';
 /** privacy settings in WhatsApp Web */
 export type WAPrivacyValue = 'all' | 'contacts' | 'contact_blacklist' | 'none';
 export type WAPrivacyOnlineValue = 'all' | 'match_last_seen';
+export type WAPrivacyCallValue = 'all' | 'known' | 'none' | 'everyone' | 'nobody';
+export type WAPrivacyMessagesValue = 'all' | 'contacts' | 'contact_blacklist' | 'none' | 'nobody';
 export type WAReadReceiptsValue = 'all' | 'none';
 /** set of statuses visible to other people; see updatePresence() in WhatsAppWeb.Send */
 export type WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused';

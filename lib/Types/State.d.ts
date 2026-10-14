@@ -24,4 +24,8 @@ export type ConnectionState = {
      * If this is false, the primary phone and other devices will receive notifs
      * */
     isOnline?: boolean;
+    /** suggested wait before opening a new socket after close */
+    reconnectDelayMs?: number;
+    /** false for logged-out / replaced sessions — do not reconnect-loop */
+    shouldReconnect?: boolean;
 };

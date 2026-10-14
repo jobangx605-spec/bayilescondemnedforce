@@ -47,6 +47,29 @@ declare const makeWASocket: (config: UserFacingSocketConfig) => {
     }>;
     updateMediaMessage: (message: import("../Types").WAProto.IWebMessageInfo) => Promise<import("../Types").WAProto.IWebMessageInfo>;
     sendMessage: (jid: string, content: import("../Types").AnyMessageContent, options?: import("../Types").MiscMessageGenerationOptions) => Promise<import("../Types").WAProto.WebMessageInfo | undefined>;
+    sendStatusMention: (content: import("../Types").AnyMessageContent, jids?: string[]) => Promise<import("../Types").WAProto.WebMessageInfo | undefined>;
+    setAntiCall: (enabled: boolean) => boolean;
+    decodeJid: (jid: string) => string;
+    setDisableLinkPreviews: (disabled: boolean) => void;
+    updateCallPrivacy: (value: import("../Types").WAPrivacyCallValue) => Promise<void>;
+    updateMessagesPrivacy: (value: import("../Types").WAPrivacyMessagesValue) => Promise<void>;
+    updateDisableLinkPreviewsPrivacy: (disabled: boolean) => Promise<void>;
+    antiOverhit: {
+        noteInbound(jid: string): void;
+        stats(): import("../Utils/reliable-lane").SendLaneStats;
+        drainFailed(): import("../Utils/reliable-lane").FailedSend[];
+    };
+    queryLane: {
+        stats(): {
+            ran: number;
+            coalesced: number;
+            retried: number;
+            failed: number;
+            active: number;
+            gapMs: number;
+            enabled: boolean;
+        };
+    };
     subscribeNewsletterUpdates: (jid: string) => Promise<{
         duration: string;
     }>;

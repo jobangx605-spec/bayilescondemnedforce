@@ -56,6 +56,19 @@ export interface WAUrlInfo {
 type Mentionable = {
     /** list of jids that are mentioned in the accompanying text */
     mentions?: string[];
+    /** mention every current group participant. '@all' inside mentions does the same */
+    mentionAll?: boolean;
+    externalAdReply?: {
+        title?: string;
+        body?: string;
+        mediaType?: number;
+        thumbnailUrl?: string;
+        mediaUrl?: string;
+        sourceUrl?: string;
+        showAdAttribution?: boolean;
+        renderLargerThumbnail?: boolean;
+        [key: string]: any;
+    };
 };
 type Contextable = {
     /** add contextInfo to the message */
@@ -213,6 +226,11 @@ export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     font?: number;
     /** if it is broadcast */
     broadcast?: boolean;
+    /** high = reply lane, normal = paced, low = bulk lane */
+    priority?: 'high' | 'normal' | 'low';
+    mentionAll?: boolean;
+    disableLinkPreview?: boolean;
+    useCachedGroupMetadata?: boolean;
 };
 export type MessageGenerationOptionsFromContent = MiscMessageGenerationOptions & {
     userJid: string;
